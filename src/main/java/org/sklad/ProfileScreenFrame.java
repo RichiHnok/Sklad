@@ -8,4 +8,7 @@ import static javax.swing.GroupLayout.Alignment.*;
 public class ProfileScreenFrame {
 	JFrame frame = new JFrame();
 	
+	public ProfileScreenFrame() {
+
+	}
 }
