@@ -134,6 +134,8 @@ public class ClientCatalogScreenFrame {
 			minusPieceButton.setMaximumSize(new Dimension(30, 70));
 
 			addToCartButton = new JButton("Add to cart");
+
+            
 		}
 
 		private void compose(){

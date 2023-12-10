@@ -94,7 +94,13 @@ public class ClientScreenFrame {
 	}
 
 	private void checkCourierButtonFunction(){
-
+        boolean isCourierArrived = true;
+        frame.dispose();
+        if(isCourierArrived){
+            new ThereIsCourierScreenFrame();
+        }else{
+            new ThereIsNoCourierScreenFrame();
+        }
 	}
 
 	private void exitButtonFunction(){

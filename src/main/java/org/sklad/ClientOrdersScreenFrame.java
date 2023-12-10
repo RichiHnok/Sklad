@@ -3,6 +3,8 @@ package org.sklad;
 import static javax.swing.GroupLayout.Alignment.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ClientOrdersScreenFrame {
@@ -251,6 +253,7 @@ public class ClientOrdersScreenFrame {
 			private JLabel orderStatusTextLabel = null;
 			private JLabel orderStatusValueLabel = null;
 			private JButton cancelOrderButton = null;
+            private JButton payOrderButton = null;
 
 			private Font anotherFont = new Font("Verdana", Font.BOLD, 12);
 			
@@ -302,7 +305,20 @@ public class ClientOrdersScreenFrame {
 
 				orderStatusValueLabel = new JLabel("delivering");
 
+                payOrderButton = new JButton("Pay");
 				cancelOrderButton = new JButton("Cancel order");
+
+                cancelOrderButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e){
+                        cancelOrderButtonFunction();
+                    }
+                });
+
+                payOrderButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e){
+                        payOrderButtonFunction();
+                    }
+                });
 			}
 
 			private void compose(){
@@ -382,6 +398,14 @@ public class ClientOrdersScreenFrame {
 					.addComponent(cancelOrderButton)
 				);
 			}
+
+            private void cancelOrderButtonFunction(){
+
+            }
+
+            private void payOrderButtonFunction(){
+
+            }
 
 			public JPanel getPanel(){
 				return panel;

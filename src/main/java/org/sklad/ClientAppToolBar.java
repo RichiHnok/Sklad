@@ -124,7 +124,7 @@ public class ClientAppToolBar {
 	}
 
 	private void profileScreenButtonFunction(){
-
+        new ProfileScreenFrame();
 	}
 
 	private void exitButtonFunction(){

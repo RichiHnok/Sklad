@@ -45,7 +45,7 @@ public class ChoosingRoleFrame {
         courierButt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                courierButtFunction();
+                courierButtonFunction();
             }
         });
 
@@ -56,7 +56,6 @@ public class ChoosingRoleFrame {
             }
         });
 
-        
 
 		// Компоновка элементов
         JPanel panel = new JPanel();
@@ -76,9 +75,9 @@ public class ChoosingRoleFrame {
                 .addComponent(message)
             )
             .addGroup(layout.createSequentialGroup()
-            .addComponent(prodMangerButt)
-            .addComponent(courierButt)
-            .addComponent(clientButt)
+                .addComponent(prodMangerButt)
+                .addComponent(courierButt)
+                .addComponent(clientButt)
             )
         );
         layout.linkSize(SwingConstants.HORIZONTAL, prodMangerButt, courierButt, clientButt);
@@ -176,8 +175,9 @@ public class ChoosingRoleFrame {
 
     }
 
-    private void courierButtFunction(){
-
+    private void courierButtonFunction(){
+        new CourierScreenFrame();
+        frame.dispose();
     }
 
     private void clientButtFunction(){
