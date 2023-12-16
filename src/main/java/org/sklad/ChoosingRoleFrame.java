@@ -1,11 +1,14 @@
 package org.sklad;
 import javax.swing.*;
+
+import org.sklad.ProductManager.ProductManagerCatalogEditorScreenFrame;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static javax.swing.GroupLayout.Alignment.*;
 
-import java.util.Date;
+// import java.util.Date;
 
 public class ChoosingRoleFrame {
     JFrame frame;
@@ -17,7 +20,7 @@ public class ChoosingRoleFrame {
     private JButton courierButt = null;
     private JButton clientButt = null;
     public ChoosingRoleFrame(){
-        System.out.println((new Date()).toString());
+        // System.out.println((new Date()).toString());
 
         // Создание окна
         frame=new JFrame("Choosing Role");
@@ -172,7 +175,8 @@ public class ChoosingRoleFrame {
     }
 
     private void prodManagerButtFunction(){
-
+        new ProductManagerCatalogEditorScreenFrame();
+        frame.dispose();
     }
 
     private void courierButtonFunction(){

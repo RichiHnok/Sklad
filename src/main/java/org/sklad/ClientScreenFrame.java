@@ -1,6 +1,6 @@
 package org.sklad;
 
-import java.util.Date;
+// import java.util.Date;
 
 import static javax.swing.GroupLayout.Alignment.*;
 import javax.swing.*;
@@ -22,7 +22,7 @@ public class ClientScreenFrame {
 	JButton exitButton = null;
 
 	public ClientScreenFrame(){
-		System.out.println((new Date()).toString());
+		// System.out.println((new Date()).toString());
 		
 		// Создание окна
         frame=new JFrame("Client");

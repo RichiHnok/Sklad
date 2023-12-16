@@ -99,7 +99,7 @@ public class ThereIsCourierScreenFrame {
     }
 
     private void viewPackageContentButtonFunction(){
-
+        new CouriersPackageContentScreenFrame();
     }
 
     private void declineOrderButtonFunction(){

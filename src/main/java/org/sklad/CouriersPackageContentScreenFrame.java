@@ -37,16 +37,22 @@ public class CouriersPackageContentScreenFrame {
         JPanel panel1 = new JPanel();
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
 
-        for(int i = 0; i < 5; i++){
-            JPanel panel2 = new JPanel();
-            panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
-            JLabel productNameLabel = new JLabel();
+        for(int i = 0; i < 12; i++){
+            panel1.add(new ProductInPackage().getPanel());
+            panel1.add(Box.createVerticalStrut(10));
             // я остановился здесь
         }
 
+        JScrollPane scrollPane = new JScrollPane(panel1);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        // scrollPane.setBounds(0, 0, productsInPackagePanel.getWidth(), productsInPackagePanel.getHeight());
+
         productsInPackagePanel = new JPanel();
         productsInPackagePanel.setPreferredSize(new Dimension(400, 200));
+        productsInPackagePanel.setLayout(new BorderLayout());
         productsInPackagePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        productsInPackagePanel.add(scrollPane);
 
         closeButton = new JButton("Close");
 
@@ -84,5 +90,48 @@ public class CouriersPackageContentScreenFrame {
 
     private void closeButtonFunction(){
         frame.dispose();
+    }
+
+    private class ProductInPackage {
+        
+        private JPanel panel = null;
+
+        private JLabel productNameLabel = null;
+        private JLabel productAmountLabel = null;
+
+        public ProductInPackage(){
+            createElements();
+            compose();
+        }
+
+        private void createElements(){
+            panel = new JPanel();
+            panel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
+
+            productNameLabel = new JLabel("name placeholder");
+
+            productAmountLabel = new JLabel("amount placeholder");
+        }
+
+        private void compose(){
+            GroupLayout l = new GroupLayout(panel);
+            panel.setLayout(l);
+
+            l.setHorizontalGroup(l.createSequentialGroup()
+                .addComponent(productNameLabel)
+                .addGap(15)
+                .addComponent(productAmountLabel)
+            );
+
+            l.setVerticalGroup(l.createParallelGroup()
+                .addComponent(productNameLabel)
+                .addGap(15)
+                .addComponent(productAmountLabel)
+            );
+        }
+
+        public JPanel getPanel(){
+            return panel;
+        }
     }
 }

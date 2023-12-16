@@ -91,7 +91,8 @@ public class ClientOrdersScreenFrame {
 		private void createElements(){
 			panel = new JPanel();
 			panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-			orderIdLabel = new JLabel("order id placeholder");
+			
+            orderIdLabel = new JLabel("order id placeholder");
 			orderIdLabel.setFont(anotherFont);
 
 			productsPanel = new JPanel();
