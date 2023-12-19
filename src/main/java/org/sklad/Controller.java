@@ -12,7 +12,7 @@ public class Controller {
 		// ChoosingRoleFrame choosingRoleFrame = new ChoosingRoleFrame();
         // LoginScreenFrame loginScreenFrame = new LoginScreenFrame();
         // RegistrationScreenFrame registrationScreenFrame = new RegistrationScreenFrame();
-		ClientCatalogScreenFrame clientCatalogScreenFrame = new ClientCatalogScreenFrame();
+		// ClientCatalogScreenFrame clientCatalogScreenFrame = new ClientCatalogScreenFrame();
 		// ClientOrdersScreenFrame clientOrdersScreenFrame = new ClientOrdersScreenFrame();
 		// ProfileScreenFrame profileScreenFrame = new ProfileScreenFrame();
         // CourierScreenFrame courierScreenFrame = new CourierScreenFrame();
@@ -21,7 +21,7 @@ public class Controller {
         // ProductManagerOrdersScreenFrame productManagerOrdersScreenFrame = new ProductManagerOrdersScreenFrame();
 		// ProductManagerProvidersScreenFrame productManagerProvidersScreenFrame = new ProductManagerProvidersScreenFrame();
         // ProductManagerCatalogEditorScreenFrame productManagerCatalogEditorScreenFrame = new ProductManagerCatalogEditorScreenFrame();
-        // ProductManagerRecAndFormingScreenFrame productManagerRecAndFormingScreenFrame = new ProductManagerRecAndFormingScreenFrame();
+        ProductManagerRecAndFormingScreenFrame productManagerRecAndFormingScreenFrame = new ProductManagerRecAndFormingScreenFrame();
         // ProductManagerStorageOrdersScreenFrame productManagerStorageOrdersScreenFrame = new ProductManagerStorageOrdersScreenFrame();
         // TestFile testFile = new TestFile();
 	}

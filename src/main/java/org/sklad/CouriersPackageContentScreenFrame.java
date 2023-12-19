@@ -14,7 +14,6 @@ public class CouriersPackageContentScreenFrame {
 
     private JLabel orderIdLabel = null;
     private JPanel productsInPackagePanel = null;
-    private JTable productsInPackagTable = null;
     private JButton closeButton = null;
 
     public CouriersPackageContentScreenFrame(){

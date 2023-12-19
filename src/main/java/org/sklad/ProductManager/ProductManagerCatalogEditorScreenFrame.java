@@ -118,8 +118,11 @@ public class ProductManagerCatalogEditorScreenFrame {
         private JTextField productAvailabelAmountTextField = null;
         private JLabel productPricePerPieceTextLabel = null;
         private JTextField productPricePerPieceTextField = null;
-        private JLabel productShowenAmountTextLabel = null;
-        private JTextField productShowenAmountTextField = null;
+
+        private JLabel showProductToClientsLabel = null;
+        private JCheckBox showProductToClientBox = null;
+        // private JLabel productShowenAmountTextLabel = null;
+        // private JTextField productShowenAmountTextField = null;
 
         private JButton setImageButton = null;
 
@@ -172,9 +175,15 @@ public class ProductManagerCatalogEditorScreenFrame {
             productPricePerPieceTextLabel.setFont(anotherFont);
             productPricePerPieceTextField = new JTextField(12);
 
-            productShowenAmountTextLabel = new JLabel("Showen amount:");
-            productShowenAmountTextLabel.setFont(anotherFont);
-            productShowenAmountTextField = new JTextField(12);
+            showProductToClientsLabel = new JLabel("Show product:");
+            showProductToClientsLabel.setFont(anotherFont);
+
+            showProductToClientBox = new JCheckBox();
+            showProductToClientBox.setSelected(true);
+
+            // productShowenAmountTextLabel = new JLabel("Showen amount:");
+            // productShowenAmountTextLabel.setFont(anotherFont);
+            // productShowenAmountTextField = new JTextField(12);
 
             setImageButton = new JButton("Set Image");
 
@@ -219,10 +228,14 @@ public class ProductManagerCatalogEditorScreenFrame {
                         .addGroup(l.createParallelGroup(LEADING, false)
                             .addComponent(productAvailableAmountLabel)
                             .addComponent(productAvailabelAmountTextField)
-                            .addComponent(productShowenAmountTextLabel)
-                            .addComponent(productShowenAmountTextField)    
+                            // .addComponent(productShowenAmountTextLabel)
+                            // .addComponent(productShowenAmountTextField)    
                             .addComponent(productPricePerPieceTextLabel)
                             .addComponent(productPricePerPieceTextField)
+                            .addGroup(l.createSequentialGroup()
+                                .addComponent(showProductToClientsLabel)
+                                .addComponent(showProductToClientBox)
+                            )
                         )
                     )
                 )
@@ -257,10 +270,14 @@ public class ProductManagerCatalogEditorScreenFrame {
                         .addGroup(l.createSequentialGroup()
                             .addComponent(productAvailableAmountLabel)
                             .addComponent(productAvailabelAmountTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(productShowenAmountTextLabel)
-                            .addComponent(productShowenAmountTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)    
+                            // .addComponent(productShowenAmountTextLabel)
+                            // .addComponent(productShowenAmountTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)    
                             .addComponent(productPricePerPieceTextLabel)
                             .addComponent(productPricePerPieceTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGroup(l.createParallelGroup(CENTER)
+                                .addComponent(showProductToClientsLabel)
+                                .addComponent(showProductToClientBox)
+                            )
                         )
                     )
                 )

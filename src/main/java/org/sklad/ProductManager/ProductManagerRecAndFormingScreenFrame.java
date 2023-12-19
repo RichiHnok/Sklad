@@ -38,7 +38,6 @@ public class ProductManagerRecAndFormingScreenFrame {
         productManagerToolBarPanel = new ProductManagerAppToolBarPanel(frame).getPanel();
 
         mainPanel = new MainPanel().getPanel();
-        // mainPanel.add(scrollPane);
     }
 
     private void compose(){
@@ -140,7 +139,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                     panel1.add(new ProviderPackagePanel().getPanel());
                 }
                 GridLayout gridLayout = new GridLayout(0, 2, 10, 10);
-                // gridLayout.setColumns(2);
                 panel1.setLayout(gridLayout);
 
                 JScrollPane scrollPane = new JScrollPane(panel1);
@@ -194,7 +192,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                 private JPanel productsPanel = null;
 
                 private JButton recieveDeliveryButton = null;
-                // private JButton showPackageContentButton = null;
 
                 public ProviderPackagePanel(){
                     createElements();
@@ -216,7 +213,7 @@ public class ProductManagerRecAndFormingScreenFrame {
                     JPanel panel1 = new JPanel();
                     panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
 
-                    for(int i = 0; i < 10; i++){
+                    for(int i = 0; i < 4; i++){
                         panel1.add(new ProductInPackage().getPanel());
                         panel1.add(Box.createVerticalStrut(10));
                     }
@@ -237,7 +234,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                             recieveDeliveryButtonFunction();
                         }
                     });
-                    // showPackageContentButton = new JButton("Show content");
                 }
 
                 private void compose(){
@@ -258,7 +254,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                         .addComponent(productsPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGroup(l.createSequentialGroup()
                             .addComponent(recieveDeliveryButton)
-                            // .addComponent(showPackageContentButton)
                         )
                     );
     
@@ -270,8 +265,7 @@ public class ProductManagerRecAndFormingScreenFrame {
                         )
                         .addComponent(productsPanel)
                         .addGroup(l.createParallelGroup()
-                            .addComponent(recieveDeliveryButton)
-                            // .addComponent(showPackageContentButton)                      
+                            .addComponent(recieveDeliveryButton)                  
                         )
                     );
                 }
@@ -294,7 +288,7 @@ public class ProductManagerRecAndFormingScreenFrame {
             private JPanel formedPackagesPanel = null;
 
             private JPanel panel1 = null;
-            private int amountOfFormedPackagesInFormingPackagesPanel = 0;
+            private int amountOfFormedPackagesInFormingPackagesPanel = 3;
             private ArrayList<JPanel> arrayOfFormedPackagesInFormingPackagePanel = null;
 
             public FormingClientsPackagesPanel(){
@@ -321,7 +315,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                 for(JPanel formedPackage : arrayOfFormedPackagesInFormingPackagePanel){
                     panel1.add(formedPackage);
                 }
-                panel1.add(new AddPackagePanel().getPanel());
 
                 JScrollPane scrollPane = new JScrollPane(panel1);
                 scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -361,7 +354,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                 for(JPanel formedPackage : arrayOfFormedPackagesInFormingPackagePanel){
                     panel1.add(formedPackage);
                 }
-                panel1.add(new AddPackagePanel().getPanel());
                 panel.updateUI();
             }
 
@@ -414,7 +406,7 @@ public class ProductManagerRecAndFormingScreenFrame {
                     JPanel panel1 = new JPanel();
                     panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
             
-                    for(int i = 0; i < 8; i++){
+                    for(int i = 0; i < 3; i++){
                         panel1.add(new ProductInPackage().getPanel());
                         panel1.add(Box.createVerticalStrut(10));
                     }
@@ -505,196 +497,6 @@ public class ProductManagerRecAndFormingScreenFrame {
                     if(amountOfFormedPackagesInFormingPackagesPanel > 0)
                         amountOfFormedPackagesInFormingPackagesPanel--;
                     fillPanelWithPackages();                    
-                }
-            }
-
-            private class AddPackagePanel{
-                private JPanel panel = null;
-
-                private JLabel chooseOrderToPackLabel = null;
-                private JComboBox<String> choosingOrderToPackBox = null;
-                
-                private JLabel orderIdTextLabel = null;
-                private JLabel orderIdValueLabel = null;
-                private JLabel clientNameTextLabel = null;
-                private JLabel clientNameValueLabel = null;
-                private JLabel clientAddressTextLabel = null;
-                private JLabel clientAddressValueLabel = null;
-                private JLabel deliveryDateTextLabel = null;
-                private JLabel deliveryDateValueLabel = null;
-
-                private JPanel productsInFormingPackagePanel = null;
-                
-                private JButton formNewPackageButton = null;
-
-                public AddPackagePanel(){
-                    createElements();
-                    compose();
-                }
-
-                private void createElements(){
-                    panel = new JPanel();
-                    panel.setPreferredSize(new Dimension(100, 100));
-                    panel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
-
-                    chooseOrderToPackLabel = new JLabel("Order:");
-                    chooseOrderToPackLabel.setFont(anotherFont);
-
-                    String order1ID = "zzz0", order2ID = "yyy1";
-                    String order1Client = "Vano", order2Client = "Billy";
-                    String order1DelDate = "12.12.2012", order2DelDate = "01.01.2021";
-                    String[] orders = {order1ID + " - " + order1Client + " - " + order1DelDate, order2ID + " - " + order2Client + " - " + order2DelDate};
-                    choosingOrderToPackBox = new JComboBox<>();
-                    for(int i = 0, n = orders.length; i < n; i++){
-                        choosingOrderToPackBox.addItem(orders[i]);
-                    }
-                    choosingOrderToPackBox.addActionListener(new ActionListener() {
-                        public void actionPerformed(ActionEvent event){
-                            String valueOfBox = (String) choosingOrderToPackBox.getSelectedItem();
-                            switch(valueOfBox){
-                                case("zzz0 - Vano - 12.12.2012"):
-                                    orderIdValueLabel.setText(order1ID);
-                                    clientNameValueLabel.setText(order1Client);
-                                    clientAddressValueLabel.setText("Zybickaia 9");
-                                    deliveryDateValueLabel.setText(order1DelDate);
-                                    break;
-                                case("yyy1 - Billy - 01.01.2021"):
-                                    orderIdValueLabel.setText(order2ID);
-                                    clientNameValueLabel.setText(order2Client);
-                                    clientAddressValueLabel.setText("Grustnaya 1");
-                                    deliveryDateValueLabel.setText(order2DelDate);
-                                    break;
-                            }
-                        }
-                    });
-
-                    orderIdTextLabel = new JLabel("Order ID:");
-                    orderIdTextLabel.setFont(anotherFont);
-
-                    orderIdValueLabel = new JLabel("zzz0");
-
-                    clientNameTextLabel = new JLabel("Client name:");
-                    clientNameTextLabel.setFont(anotherFont);
-
-                    clientNameValueLabel = new JLabel("Vano");
-
-                    clientAddressTextLabel = new JLabel("Address:");
-                    clientAddressTextLabel.setFont(anotherFont);
-
-                    clientAddressValueLabel = new JLabel("Grustnaya 99");
-
-                    deliveryDateTextLabel = new JLabel("Delivery date:");
-                    deliveryDateTextLabel.setFont(anotherFont);
-
-                    deliveryDateValueLabel = new JLabel("12.12.2012");
-
-                    JPanel panel1 = new JPanel();
-                    panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
-
-                    for(int i = 0; i < 10; i++){
-                        panel1.add(new ProductInPackage().getPanel());
-                        panel1.add(Box.createVerticalStrut(10));
-                    }
-
-                    JScrollPane scrollPane = new JScrollPane(panel1);
-                    scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-
-                    productsInFormingPackagePanel = new JPanel();
-                    productsInFormingPackagePanel.setPreferredSize(new Dimension(330, 100));
-                    productsInFormingPackagePanel.setLayout(new BorderLayout());
-                    productsInFormingPackagePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-                    productsInFormingPackagePanel.add(scrollPane);
-
-
-                    formNewPackageButton = new JButton("Form package");
-                    formNewPackageButton.addActionListener(new ActionListener() {
-                        public void actionPerformed(ActionEvent e){
-                            formNewPackageButtonFunction();
-                        }
-                    });
-                }
-
-                private void compose(){
-                    panel.setLayout(new GridBagLayout());
-
-                    JPanel panel1 = new JPanel();
-                    GroupLayout l = new GroupLayout(panel1);
-                    panel1.setLayout(l);
-
-                    panel.add(panel1);
-    
-                    l.setHorizontalGroup(l.createParallelGroup()
-                        .addGroup(l.createSequentialGroup()
-                            .addComponent(chooseOrderToPackLabel)
-                            .addGap(5)
-                            .addComponent(choosingOrderToPackBox)
-                        )
-                        .addGroup(l.createSequentialGroup()
-                            .addComponent(orderIdTextLabel)
-                            .addGap(5)
-                            .addComponent(orderIdValueLabel)
-                        )
-                        .addGroup(l.createSequentialGroup()
-                            .addComponent(clientNameTextLabel)
-                            .addGap(5)
-                            .addComponent(clientNameValueLabel)
-                        )
-                        .addGroup(l.createSequentialGroup()
-                            .addComponent(clientAddressTextLabel)
-                            .addGap(5)
-                            .addComponent(clientAddressValueLabel)
-                        )
-                        .addGroup(l.createSequentialGroup()
-                            .addComponent(deliveryDateTextLabel)
-                            .addGap(5)
-                            .addComponent(deliveryDateValueLabel)
-                        )
-                        .addComponent(productsInFormingPackagePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addGroup(l.createSequentialGroup()
-                            .addGap(70)
-                            .addComponent(formNewPackageButton)
-                        )
-                    );
-    
-                    l.setVerticalGroup(l.createSequentialGroup()
-                        .addGroup(l.createParallelGroup(CENTER)
-                            .addComponent(chooseOrderToPackLabel)
-                            .addComponent(choosingOrderToPackBox)
-                        )
-                        // .addGap(5)
-                        .addGroup(l.createParallelGroup()
-                            .addComponent(orderIdTextLabel)
-                            .addComponent(orderIdValueLabel)
-                        )
-                        // .addGap(10)
-                        .addGroup(l.createParallelGroup()
-                            .addComponent(clientNameTextLabel)
-                            .addComponent(clientNameValueLabel)
-                        )
-                        // .addGap(10)
-                        .addGroup(l.createParallelGroup()
-                            .addComponent(clientAddressTextLabel)
-                            .addComponent(clientAddressValueLabel)
-                        )
-                        // .addGap(10)
-                        .addGroup(l.createParallelGroup()
-                            .addComponent(deliveryDateTextLabel)
-                            .addComponent(deliveryDateValueLabel)
-                        )
-                        // .addGap(10)
-                        .addComponent(productsInFormingPackagePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(formNewPackageButton)
-                    );
-                }
-
-                public JPanel getPanel(){
-                    return panel;
-                }
-
-                private void formNewPackageButtonFunction(){
-                    amountOfFormedPackagesInFormingPackagesPanel++;
-                    fillPanelWithPackages();
                 }
             }
         }

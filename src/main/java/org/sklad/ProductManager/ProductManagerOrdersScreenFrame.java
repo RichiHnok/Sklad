@@ -172,8 +172,10 @@ public class ProductManagerOrdersScreenFrame {
 			private JLabel totalPriceTextLabel = null;
 			private JLabel totalPriceValueLabel = null;
 
-			private JLabel chooseOrderStatusTextLabel = null;
-			private JComboBox<String> choosingOrderStatusBox = null;
+			private JLabel orderStatusTextLabel = null;
+			private JLabel orderStatusValueLabel = null;
+
+			private JButton formPackageOfOrderButton = null;
 
 			private Font anotherFont = new Font("Verdana", Font.BOLD, 12);
 
@@ -210,19 +212,19 @@ public class ProductManagerOrdersScreenFrame {
 
 				totalPriceValueLabel = new JLabel("100");
 
-				chooseOrderStatusTextLabel = new JLabel("Order status:");
-				chooseOrderStatusTextLabel.setFont(anotherFont);
+				orderStatusTextLabel = new JLabel("Order status:");
+				orderStatusTextLabel.setFont(anotherFont);
 
-                String[] statuses = {"waiting payment", "forming package", "delivering", "delivered", "canceled"};
-				choosingOrderStatusBox = new JComboBox<>();
-                for(int i = 0, n = statuses.length; i < n; i++){
-                    choosingOrderStatusBox.addItem(statuses[i]);
-                }
-                choosingOrderStatusBox.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent event){
+				orderStatusValueLabel = new JLabel("waiting payment");
 
-                    }
-                });
+				formPackageOfOrderButton = new JButton("Form Package");
+				formPackageOfOrderButton.setEnabled(false);
+				formPackageOfOrderButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e){
+						// add new package to list
+						formPackageOfOrderButtonFunction();
+					}
+				});
             }
 
             private void compose(){
@@ -261,10 +263,11 @@ public class ProductManagerOrdersScreenFrame {
 						.addComponent(totalPriceValueLabel)
 					)
 					.addGroup(l.createSequentialGroup()
-						.addComponent(chooseOrderStatusTextLabel)
+						.addComponent(orderStatusTextLabel)
                         .addGap(5)
-						.addComponent(choosingOrderStatusBox)
+						.addComponent(orderStatusValueLabel)
 					)
+					.addComponent(formPackageOfOrderButton)
 				);
 	
 				l.setVerticalGroup(l.createSequentialGroup()
@@ -295,15 +298,21 @@ public class ProductManagerOrdersScreenFrame {
 					)
 					.addGap(15)
 					.addGroup(l.createParallelGroup(CENTER)
-						.addComponent(chooseOrderStatusTextLabel)
-						.addComponent(choosingOrderStatusBox)
+						.addComponent(orderStatusTextLabel)
+						.addComponent(orderStatusValueLabel)
 					)
+					.addGap(15)
+					.addComponent(formPackageOfOrderButton)
 				);
             }
 
             public JPanel getPanel(){
                 return panel;
             }
+
+			private void formPackageOfOrderButtonFunction(){
+
+			}
         }
 
         private class ProductInOrderPanel{
