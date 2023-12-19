@@ -83,7 +83,7 @@ public class ProductManagerProvidersScreenFrame {
 
 		l.setVerticalGroup(l.createSequentialGroup()
 			.addComponent(productManagerToolBarPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-			.addComponent(providersPanel)
+			.addComponent(providersPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
 			.addComponent(addProviderPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
 		);
 

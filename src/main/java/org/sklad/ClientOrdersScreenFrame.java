@@ -42,7 +42,7 @@ public class ClientOrdersScreenFrame {
 		}
 		JScrollPane scrollPane = new JScrollPane(panel1);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(0, 0, ordersPanel.getWidth(), ordersPanel.getHeight());
 		
 		ordersPanel.setLayout(new BorderLayout());
@@ -109,7 +109,7 @@ public class ClientOrdersScreenFrame {
 			
 			JScrollPane scrollPane = new JScrollPane(panel1);
 			scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 			scrollPane.setBounds(0, 0, productsPanel.getWidth(), productsPanel.getHeight());
 
 			productsPanel.add(scrollPane);

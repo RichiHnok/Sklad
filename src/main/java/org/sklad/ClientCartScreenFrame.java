@@ -50,7 +50,7 @@ public class ClientCartScreenFrame {
 		}
 		JScrollPane scrollPane = new JScrollPane(panel1);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(0, 0, cartProductsPanel.getWidth(), cartProductsPanel.getHeight());
 		
 		cartProductsPanel.setLayout(new BorderLayout());

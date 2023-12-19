@@ -42,7 +42,7 @@ public class ClientCatalogScreenFrame {
 		}
 		JScrollPane scrollPane = new JScrollPane(panel1);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(0, 0, catalogProductsPanel.getWidth(), catalogProductsPanel.getHeight());
 		
 		catalogProductsPanel.setLayout(new BorderLayout());
@@ -60,13 +60,13 @@ public class ClientCatalogScreenFrame {
 		layout.setAutoCreateContainerGaps(true);
 
 		layout.setHorizontalGroup(layout.createParallelGroup(CENTER, false)
-			.addComponent(toolBarPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE)
-			.addComponent(catalogProductsPanel)
+			.addComponent(toolBarPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			.addComponent(catalogProductsPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
 		);
 
 		layout.setVerticalGroup(layout.createSequentialGroup()
-			.addComponent(toolBarPanel)
-			.addComponent(catalogProductsPanel)
+			.addComponent(toolBarPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			.addComponent(catalogProductsPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
 		);
 	}
 
@@ -129,9 +129,11 @@ public class ClientCatalogScreenFrame {
 			plusPieceButton = new JButton("+");
 			plusPieceButton.setPreferredSize(new Dimension(30, 50));
 			plusPieceButton.setMaximumSize(new Dimension(30, 70));
+			plusPieceButton.setMargin( new Insets(5, 5, 5, 5) );
 			minusPieceButton = new JButton("-");
 			minusPieceButton.setPreferredSize(new Dimension(30, 50));
 			minusPieceButton.setMaximumSize(new Dimension(30, 70));
+			minusPieceButton.setMargin( new Insets(5, 5, 5, 5) );
 
 			addToCartButton = new JButton("Add to cart");
 

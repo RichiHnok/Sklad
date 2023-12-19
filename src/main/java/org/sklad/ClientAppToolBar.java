@@ -78,7 +78,6 @@ public class ClientAppToolBar {
 		// tbLayout.setAutoCreateContainerGaps(true);
 		
 		tbLayout.setHorizontalGroup(tbLayout.createSequentialGroup()
-			.addGap(320)
 			.addComponent(catalogScreenButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE)
 			.addComponent(cartScreenButton)
 			.addComponent(ordersScreenButton)
@@ -88,7 +87,6 @@ public class ClientAppToolBar {
 
 		tbLayout.setVerticalGroup(tbLayout.createSequentialGroup()
 			.addGroup(tbLayout.createParallelGroup(CENTER)
-				.addGap(50)
 				.addComponent(catalogScreenButton)
 				.addComponent(cartScreenButton)
 				.addComponent(ordersScreenButton)
