@@ -2,10 +2,12 @@ package org.sklad.ProductManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static javax.swing.GroupLayout.Alignment.*;
 
-public class ProductManaderOrdersScreenFrame {
+public class ProductManagerOrdersScreenFrame {
     
     private JFrame frame = new JFrame();
 
@@ -16,7 +18,7 @@ public class ProductManaderOrdersScreenFrame {
 
     private JPanel productManagerOrdersPanel = null;
 
-    public ProductManaderOrdersScreenFrame(){
+    public ProductManagerOrdersScreenFrame(){
         createElements();
         compose();
     }
@@ -44,7 +46,7 @@ public class ProductManaderOrdersScreenFrame {
         }
 
         JScrollPane scrollPane = new JScrollPane(panel1);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(0, 0, productManagerOrdersPanel.getWidth(), productManagerOrdersPanel.getHeight());
 
@@ -111,14 +113,14 @@ public class ProductManaderOrdersScreenFrame {
             
             JPanel panel1 = new JPanel();
 			panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
-			for(int i = 0; i < 20; i++){
+			for(int i = 0; i < 5; i++){
 				panel1.add(new ProductInOrderPanel().getPanel());
 				panel1.add(Box.createVerticalStrut(5));
 			}
 			
 			JScrollPane scrollPane = new JScrollPane(panel1);
 			scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 			scrollPane.setBounds(0, 0, productsPanel.getWidth(), productsPanel.getHeight());
 
 			productsPanel.add(scrollPane);
@@ -137,7 +139,7 @@ public class ProductManaderOrdersScreenFrame {
 				.addComponent(orderIdLabel)
 				.addGroup(l.createSequentialGroup()
 					.addComponent(productsPanel)
-					.addGap(10)
+					// .addGap(10)
 					.addComponent(orderInfoPanel)
 				)
 			);
@@ -169,8 +171,9 @@ public class ProductManaderOrdersScreenFrame {
 			private JLabel deliveringDateValueLabel = null;
 			private JLabel totalPriceTextLabel = null;
 			private JLabel totalPriceValueLabel = null;
-			private JLabel orderStatusTextLabel = null;
-			private JTextField orderStatusTextField = null;
+
+			private JLabel chooseOrderStatusTextLabel = null;
+			private JComboBox<String> choosingOrderStatusBox = null;
 
 			private Font anotherFont = new Font("Verdana", Font.BOLD, 12);
 
@@ -182,35 +185,44 @@ public class ProductManaderOrdersScreenFrame {
             private void createElements(){
                 panel = new JPanel();
 
-				clientNameTextLabel = new JLabel("Client name: ");
+				clientNameTextLabel = new JLabel("Client name:");
 				clientNameTextLabel.setFont(anotherFont);
 
 				clientNameValueLabel = new JLabel("Placeholder");
 
-				phoneNumberTextLabel = new JLabel("Phone number: ");
+				phoneNumberTextLabel = new JLabel("Phone number:");
 				phoneNumberTextLabel.setFont(anotherFont);
 
 				phoneNumberValueLabel = new JLabel("+01234567");
 
-				addressTextLabel = new JLabel("Address: ");
+				addressTextLabel = new JLabel("Address:");
 				addressTextLabel.setFont(anotherFont);
 
 				addressValueLabel = new JLabel("City N, Street M/B, Flat V");
 
-				deliveringDateTextLabel = new JLabel("Delivery date: ");
+				deliveringDateTextLabel = new JLabel("Delivery date:");
 				deliveringDateTextLabel.setFont(anotherFont);
 
 				deliveringDateValueLabel = new JLabel("20.12.2021");
 
-				totalPriceTextLabel = new JLabel("Total price: ");
+				totalPriceTextLabel = new JLabel("Total price:");
 				totalPriceTextLabel.setFont(anotherFont);
 
 				totalPriceValueLabel = new JLabel("100");
 
-				orderStatusTextLabel = new JLabel("Status: ");
-				orderStatusTextLabel.setFont(anotherFont);
+				chooseOrderStatusTextLabel = new JLabel("Order status:");
+				chooseOrderStatusTextLabel.setFont(anotherFont);
 
-				orderStatusTextField = new JTextField("delivering");
+                String[] statuses = {"waiting payment", "forming package", "delivering", "delivered", "canceled"};
+				choosingOrderStatusBox = new JComboBox<>();
+                for(int i = 0, n = statuses.length; i < n; i++){
+                    choosingOrderStatusBox.addItem(statuses[i]);
+                }
+                choosingOrderStatusBox.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent event){
+
+                    }
+                });
             }
 
             private void compose(){
@@ -225,27 +237,33 @@ public class ProductManaderOrdersScreenFrame {
 				l.setHorizontalGroup(l.createParallelGroup()
 					.addGroup(l.createSequentialGroup()
 						.addComponent(clientNameTextLabel)
-						.addComponent(clientNameValueLabel)					
+                        .addGap(5)
+						.addComponent(clientNameValueLabel)
 					)
 					.addGroup(l.createSequentialGroup()
 						.addComponent(phoneNumberTextLabel)
+                        .addGap(5)
 						.addComponent(phoneNumberValueLabel)
 					)
 					.addGroup(l.createSequentialGroup()
 						.addComponent(addressTextLabel)
+                        .addGap(5)
 						.addComponent(addressValueLabel)
 					)
 					.addGroup(l.createSequentialGroup()
 						.addComponent(deliveringDateTextLabel)
+                        .addGap(5)
 						.addComponent(deliveringDateValueLabel)
 					)					
 					.addGroup(l.createSequentialGroup()
 						.addComponent(totalPriceTextLabel)
+                        .addGap(5)
 						.addComponent(totalPriceValueLabel)
 					)
 					.addGroup(l.createSequentialGroup()
-						.addComponent(orderStatusTextLabel)
-						.addComponent(orderStatusTextField)
+						.addComponent(chooseOrderStatusTextLabel)
+                        .addGap(5)
+						.addComponent(choosingOrderStatusBox)
 					)
 				);
 	
@@ -277,8 +295,8 @@ public class ProductManaderOrdersScreenFrame {
 					)
 					.addGap(15)
 					.addGroup(l.createParallelGroup(CENTER)
-						.addComponent(orderStatusTextLabel)
-						.addComponent(orderStatusTextField)
+						.addComponent(chooseOrderStatusTextLabel)
+						.addComponent(choosingOrderStatusBox)
 					)
 				);
             }

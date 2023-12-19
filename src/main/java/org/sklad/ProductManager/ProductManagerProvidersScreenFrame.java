@@ -94,8 +94,10 @@ public class ProductManagerProvidersScreenFrame {
 
         private JLabel providerIdTextLabel = null;
         private JLabel providerIdValueLabel = null;
+        private JLabel providerNameTextLabel = null;
+        private JTextField providerNameTextField = null;
         private JLabel providerPhoneTextLabel = null;
-        private JLabel providerPhoneValueLabel = null;
+        private JTextField providerPhoneTextField = null;
         private JButton removeProviderButton = null;
 
         private JPanel productsPanel = null;
@@ -111,29 +113,28 @@ public class ProductManagerProvidersScreenFrame {
             panel = new JPanel();
 			panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
-            panel = new JPanel();
-			panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-
-            providerIdTextLabel = new JLabel("Provider Name:");
+            providerIdTextLabel = new JLabel("Provider ID:");
             providerIdTextLabel.setFont(anotherFont);
-            providerIdTextLabel.setVerticalAlignment(JLabel.CENTER);
+            providerIdTextLabel.setVerticalAlignment(JLabel.CENTER);            
+            
+            providerIdValueLabel = new JLabel("p123");
+            providerIdValueLabel.setPreferredSize(new Dimension(50, providerIdValueLabel.getHeight()));
+            // providerIdValueLabel.setVerticalAlignment(JLabel.CENTER);
 
-            providerIdValueLabel = new JLabel("Chingiz");
-            providerIdValueLabel.setVerticalAlignment(JLabel.CENTER);
+            providerNameTextLabel = new JLabel("Provider Name:");
+            providerNameTextLabel.setFont(anotherFont);
+            providerNameTextLabel.setVerticalAlignment(JLabel.CENTER);
+
+            providerNameTextField = new JTextField("Chingiz", 9);
+            // providerNameTextField.setVerticalAlignment(JLabel.CENTER);
 
             providerPhoneTextLabel = new JLabel("Phone:");
             providerPhoneTextLabel.setFont(anotherFont);
             providerPhoneTextLabel.setVerticalAlignment(JLabel.CENTER);
 
-            providerPhoneValueLabel = new JLabel("+375291234567");
-            providerPhoneValueLabel.setVerticalAlignment(JLabel.CENTER);
+            providerPhoneTextField = new JTextField("+375291234567", 9);
 
-            removeProviderButton = new JButton("Remove");
-
-            productsPanel = new JPanel();
-            productsPanel.setPreferredSize(new Dimension(600, 200));
-			productsPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3));
-			productsPanel.setLayout(new BorderLayout());
+            removeProviderButton = new JButton("Remove provider");
 
             JPanel panel1 = new JPanel();
             panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
@@ -146,8 +147,11 @@ public class ProductManagerProvidersScreenFrame {
 			scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
+            productsPanel = new JPanel();
+            productsPanel.setPreferredSize(new Dimension(600, 300));
+			productsPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3));
+			productsPanel.setLayout(new BorderLayout());
             productsPanel.add(scrollPane);
-
             addProductPanel = new AddProductToProviderPanel().getPanel();
         }
 
@@ -160,12 +164,15 @@ public class ProductManagerProvidersScreenFrame {
                     .addGap(5)
                     .addComponent(providerIdTextLabel)
                     .addGap(5)
-                    .addComponent(providerIdValueLabel)
-                    .addGap(30)
+                    .addComponent(providerIdValueLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(5)
+                    .addComponent(providerNameTextLabel)
+                    .addGap(5)
+                    .addComponent(providerNameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(5)
                     .addComponent(providerPhoneTextLabel)
                     .addGap(5)
-                    .addComponent(providerPhoneValueLabel)
-                    .addGap(40)
+                    .addComponent(providerPhoneTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(removeProviderButton)
                 )
                 .addGroup(l.createSequentialGroup()
@@ -178,8 +185,10 @@ public class ProductManagerProvidersScreenFrame {
                 .addGroup(l.createParallelGroup(CENTER, false)
                     .addComponent(providerIdTextLabel)
                     .addComponent(providerIdValueLabel)
+                    .addComponent(providerNameTextLabel)
+                    .addComponent(providerNameTextField)
                     .addComponent(providerPhoneTextLabel)
-                    .addComponent(providerPhoneValueLabel)
+                    .addComponent(providerPhoneTextField)
                     .addComponent(removeProviderButton)                    
                 )
                 .addGroup(l.createParallelGroup()
@@ -196,6 +205,8 @@ public class ProductManagerProvidersScreenFrame {
         private class ProvidersProductPanel{
             private JPanel panel = null;
 
+            private JLabel productIdTextLabel = null;
+            private JLabel productIdValueLabel = null;
             private JLabel nameOfProductTextLabel = null;
             private JTextField nameOfProductTextField = null;
             private JLabel pricePerPieceTextLabel = null;
@@ -213,6 +224,12 @@ public class ProductManagerProvidersScreenFrame {
                 panel = new JPanel();
                 panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
+                productIdTextLabel = new JLabel("Product ID:");
+                productIdTextLabel.setFont(anotherFont);
+
+                productIdValueLabel = new JLabel("z000");
+                productIdValueLabel.setPreferredSize(new Dimension(40, productIdValueLabel.getHeight()));
+
                 nameOfProductTextLabel = new JLabel("Product name:");
                 nameOfProductTextLabel.setFont(anotherFont);
                 nameOfProductTextField = new JTextField("Hurma", 10);
@@ -225,7 +242,7 @@ public class ProductManagerProvidersScreenFrame {
                 productDescriptionTextLabel.setFont(anotherFont);
                 productDescriptionTextArea = new JTextArea("description");
                 productDescriptionTextArea.setLineWrap(true);
-                productDescriptionTextArea.setPreferredSize(new Dimension(300, 75));
+                productDescriptionTextArea.setPreferredSize(new Dimension(300, 100));
                 productDescriptionTextArea.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
                 removeProductButton = new JButton("Remove");
@@ -241,7 +258,13 @@ public class ProductManagerProvidersScreenFrame {
                 panel.setLayout(l);
 
                 l.setHorizontalGroup(l.createSequentialGroup()
+                    .addGap(10)
                     .addGroup(l.createParallelGroup()
+                        .addGroup(l.createSequentialGroup()
+                            .addComponent(productIdTextLabel)
+                            .addGap(5)
+                            .addComponent(productIdValueLabel)
+                        )
                         .addComponent(nameOfProductTextLabel)
                         .addComponent(nameOfProductTextField)
                         .addComponent(pricePerPieceTextLabel)
@@ -257,6 +280,11 @@ public class ProductManagerProvidersScreenFrame {
 
                 l.setVerticalGroup(l.createParallelGroup(CENTER)
                     .addGroup(l.createSequentialGroup()
+                        .addGroup(l.createParallelGroup()
+                            .addComponent(productIdTextLabel)
+                            .addComponent(productIdValueLabel)
+                        )
+                        .addGap(5)
                         .addComponent(nameOfProductTextLabel)
                         .addComponent(nameOfProductTextField)
                         .addComponent(pricePerPieceTextLabel)
@@ -346,10 +374,10 @@ public class ProductManagerProvidersScreenFrame {
                 l.setVerticalGroup(l.createParallelGroup(CENTER, false)
                     .addGroup(l.createSequentialGroup()
                         .addComponent(nameOfProductTextLabel)
-                        .addComponent(nameOfProductTextField)
+                        .addComponent(nameOfProductTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(15)
                         .addComponent(pricePerPieceTextLabel)
-                        .addComponent(pricePerPieceTextField)
+                        .addComponent(pricePerPieceTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
                     )
                     .addGroup(l.createSequentialGroup()
                         .addComponent(productDescriptionTextLabel)
@@ -402,7 +430,7 @@ public class ProductManagerProvidersScreenFrame {
 
             providerPhoneTextField = new JTextField(30);
 
-            addProviderButton = new JButton("Add");
+            addProviderButton = new JButton("Add provider");
 
             addProviderButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e){
@@ -424,7 +452,7 @@ public class ProductManagerProvidersScreenFrame {
                 .addComponent(providerPhoneTextLabel)
                 .addGap(5)
                 .addComponent(providerPhoneTextField)
-                .addGap(40)
+                .addGap(5)
                 .addComponent(addProviderButton)
             );
 

@@ -6,7 +6,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// ещё не доделан
 public class CouriersPackageContentScreenFrame {
     private JFrame frame = null;
 
@@ -40,13 +39,11 @@ public class CouriersPackageContentScreenFrame {
         for(int i = 0; i < 12; i++){
             panel1.add(new ProductInPackage().getPanel());
             panel1.add(Box.createVerticalStrut(10));
-            // я остановился здесь
         }
 
         JScrollPane scrollPane = new JScrollPane(panel1);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        // scrollPane.setBounds(0, 0, productsInPackagePanel.getWidth(), productsInPackagePanel.getHeight());
 
         productsInPackagePanel = new JPanel();
         productsInPackagePanel.setPreferredSize(new Dimension(400, 200));
@@ -96,6 +93,7 @@ public class CouriersPackageContentScreenFrame {
         
         private JPanel panel = null;
 
+        private JLabel productIdLabel = null;
         private JLabel productNameLabel = null;
         private JLabel productAmountLabel = null;
 
@@ -108,9 +106,11 @@ public class CouriersPackageContentScreenFrame {
             panel = new JPanel();
             panel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
 
-            productNameLabel = new JLabel("name placeholder");
+            productIdLabel = new JLabel("product id");
 
-            productAmountLabel = new JLabel("amount placeholder");
+            productNameLabel = new JLabel("product name");
+
+            productAmountLabel = new JLabel("product amount");
         }
 
         private void compose(){
@@ -118,12 +118,16 @@ public class CouriersPackageContentScreenFrame {
             panel.setLayout(l);
 
             l.setHorizontalGroup(l.createSequentialGroup()
+                .addComponent(productIdLabel)
+                .addGap(15)
                 .addComponent(productNameLabel)
                 .addGap(15)
                 .addComponent(productAmountLabel)
             );
 
             l.setVerticalGroup(l.createParallelGroup()
+                .addComponent(productIdLabel)
+                .addGap(15)
                 .addComponent(productNameLabel)
                 .addGap(15)
                 .addComponent(productAmountLabel)

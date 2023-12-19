@@ -1,9 +1,10 @@
 package org.sklad;
 
-import org.sklad.ProductManager.ProductManaderOrdersScreenFrame;
+import org.sklad.ProductManager.ProductManagerOrdersScreenFrame;
 import org.sklad.ProductManager.ProductManagerCatalogEditorScreenFrame;
 import org.sklad.ProductManager.ProductManagerProvidersScreenFrame;
 import org.sklad.ProductManager.ProductManagerRecAndFormingScreenFrame;
+import org.sklad.ProductManager.ProductManagerStorageOrdersScreenFrame;
 
 public class Controller {
 	
@@ -16,11 +17,12 @@ public class Controller {
 		// ProfileScreenFrame profileScreenFrame = new ProfileScreenFrame();
         // CourierScreenFrame courierScreenFrame = new CourierScreenFrame();
         // ClientScreenFrame clientScreenFrame = new ClientScreenFrame();
-        // CouriersPackageContentScreenFrame couriersPackageContentScreenFrame = new CouriersPackageContentScreenrame();
-        // ProductManaderOrdersScreenFrame productManaderOrdersScreenFrame = new ProductManaderOrdersScreenFrame();
+        // CouriersPackageContentScreenFrame couriersPackageContentScreenFrame = new CouriersPackageContentScreenFrame();
+        // ProductManagerOrdersScreenFrame productManagerOrdersScreenFrame = new ProductManagerOrdersScreenFrame();
 		// ProductManagerProvidersScreenFrame productManagerProvidersScreenFrame = new ProductManagerProvidersScreenFrame();
-        // ProductManagerCatalogEditorScreenFrame productManagerCatalogEditorScreenFrame = new ProductManagerCatalogEditorScreenFrame();
-        ProductManagerRecAndFormingScreenFrame productManagerRecAndFormingScreenFrame = new ProductManagerRecAndFormingScreenFrame();
+        ProductManagerCatalogEditorScreenFrame productManagerCatalogEditorScreenFrame = new ProductManagerCatalogEditorScreenFrame();
+        // ProductManagerRecAndFormingScreenFrame productManagerRecAndFormingScreenFrame = new ProductManagerRecAndFormingScreenFrame();
+        // ProductManagerStorageOrdersScreenFrame productManagerStorageOrdersScreenFrame = new ProductManagerStorageOrdersScreenFrame();
         // TestFile testFile = new TestFile();
 	}
 }

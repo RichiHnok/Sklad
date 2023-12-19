@@ -120,20 +120,22 @@ public class ProductManagerAppToolBarPanel {
 
     private void clientsOrdersScreenButtonFunction(){
         if(!(frame.getTitle().equals("Clients orders"))){
-            new ProductManaderOrdersScreenFrame();
+            new ProductManagerOrdersScreenFrame();
             frame.dispose();
         }
     }
 
     private void recieveAndFormingScreenButtonFunction(){
-        if(!(frame.getTitle().equals(""))){
-        
-        }
+        if(!(frame.getTitle().equals("Recieving and Forming Packages"))){
+            new ProductManagerRecAndFormingScreenFrame();
+            frame.dispose();
+        }        
     }
 
     private void storageOrdersScreenButtonFunction(){
-        if(!(frame.getTitle().equals(""))){
-        
+        if(!(frame.getTitle().equals("Storage ordering"))){
+            new ProductManagerStorageOrdersScreenFrame();
+            frame.dispose();
         }
     }
 
